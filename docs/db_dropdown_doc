@@ -58,6 +58,6 @@ In the salvar-livro.php:
 			}
       
 From line 40 to 45 I requested the values that were used in the "livro" insert, but in this one we will focus on $autor.
-This value comes from the 'value' inside de select tag, and it corresponds to the "id" for "autor".
+This value comes from the 'value' inside the select tag, and it corresponds to the "id" for "autor".
 
 Line 50 and 51 inserts intothe rows of "livro" the values from the variables.
