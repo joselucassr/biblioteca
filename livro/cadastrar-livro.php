@@ -9,7 +9,7 @@
            <?php
            // Teste de criação de menu Dropdown
 
-            $query_autor = "SELECT nome_autor FROM autor";
+            $query_autor = "SELECT id_autor,nome_autor  FROM autor";
             $result_autor = mysqli_query($conn, $query_autor);
 
             $opt = "<select class='form-control' name='autor_livro'>";
@@ -32,7 +32,7 @@
             <?php
             // Teste de criação de menu Dropdown
 
-            $query_categoria = "SELECT nome_categoria FROM categoria";
+            $query_categoria = "SELECT id_categoria, nome_categoria FROM categoria";
             $result_categoria = mysqli_query($conn, $query_categoria);
 
             $opt = "<select class='form-control' name='categoria_livro'>";
