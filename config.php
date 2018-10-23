@@ -8,12 +8,6 @@
 
 	$conn = new mysqli($host, $user, $pass, $db);
 
-	// Teste de criação de menu Dropdown
-
-    $query_autor = "SELECT id_autor FROM 'autor'";
-
-    $result_autor = mysqli_query($conn, $query_autor);
-
 	// includes das páginas
 	switch (@$_REQUEST["page"]) {
 		// autor

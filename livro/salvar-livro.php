@@ -1,15 +1,11 @@
 <?php
 
-    $autor   = @$_REQUEST["autor_livro"];
+    $autor   = @$_REQUEST["id_autor"];
+    $categoria   = @$_REQUEST["id_categoria"];
 	$titulo  = @$_REQUEST["titulo_livro"];
 	$editora = @$_REQUEST["editora_livro"];
 	$local   = @$_REQUEST["local_livro"];
 	$ano     = @$_REQUEST["ano_livro"];
-
-	switch ($autor){
-        default:
-            display($autor);
-    }
 
 	switch (@$_REQUEST["acao"]) {
 		case "cadastrar":

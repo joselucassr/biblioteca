@@ -5,13 +5,48 @@
 
         <!-- Tentativa de Mostrar os autores a partir de um dropdown menu -->
         <div class="form-group">
-            <select class="form-control" name="autor_livro">
-                <option value="Escolha um" selected>Escolha um</option>
-                <?php include '../config.php';?>
-                <?php while ($row_autor = mysqli_fetch_assoc($result_autor)):; ?>
-                <option value="<?php echo $row_autor["id_autor"];?>"><?php echo $row_autor["id_autor"]; ?></option>
-                <?php endwhile; ?>
-            </select>
+            <label>Nome do Autor</label>
+           <?php
+           // Teste de criação de menu Dropdown
+
+            $query_autor = "SELECT nome_autor FROM autor";
+            $result_autor = mysqli_query($conn, $query_autor);
+
+            $opt = "<select class='form-control' name='autor_livro'>";
+
+                while ($row_autor = mysqli_fetch_assoc($result_autor)){
+                    @$opt .= "<option value = '{$row_autor['id_autor']}'>{$row_autor['nome_autor']}</option>";
+                }
+
+            $opt .= "</select>";
+
+           echo $opt;
+
+            ?>
+
+        </div>
+
+        <label>Nome da Categoria</label>
+        <div class="form-group">
+
+            <?php
+            // Teste de criação de menu Dropdown
+
+            $query_categoria = "SELECT nome_categoria FROM categoria";
+            $result_categoria = mysqli_query($conn, $query_categoria);
+
+            $opt = "<select class='form-control' name='categoria_livro'>";
+
+            while ($row_categoria = mysqli_fetch_assoc($result_categoria)){
+                @$opt .= "<option value = '{$row_categoria['id_categoria']}'>{$row_categoria['nome_categoria']}</option>";
+            }
+
+            $opt .= "</select>";
+
+            echo $opt;
+
+            ?>
+
         </div>
 
 		<div class="form-group">
