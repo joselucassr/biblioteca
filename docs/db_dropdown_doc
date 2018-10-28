@@ -1,0 +1,63 @@
+This is the explanation for the dropdown menu thats used in this study.
+
+In the cadastrar-livro.php file:
+
+    <?php
+    // Teste de criação de menu Dropdown
+
+    $query_autor = "SELECT id_autor,nome_autor  FROM autor";
+    $result_autor = mysqli_query($conn, $query_autor);
+
+    $opt = "<select class='form-control' name='autor_livro'>";
+
+        while ($row_autor = mysqli_fetch_assoc($result_autor)){
+            @$opt .= "<option value = '{$row_autor['id_autor']}'>{$row_autor['nome_autor']}</option>";
+        }
+
+    $opt .= "</select>";
+
+    echo $opt;
+
+    ?>
+    
+The line 8 calls the selection for the rows "id_autor" and "nome_autor" inside the table "autor".
+
+Line 9 performs the query on the database.
+
+Line 11 starts the HTML select tag, it uses a variable $opt to storage it. 
+The name passed as "autor_livro" is important for the insert part".
+
+In line 13 a while loop is used to go through the db in order to show the results.
+
+Line 14 gets the "id_autor" and uses it as the value for the later insert on the db.
+
+Line 17 closes the select tag, and 19 echoes it.
+
+In the salvar-livro.php:
+
+  <?php
+
+  $autor       = @$_REQUEST["autor_livro"];
+  $categoria   = @$_REQUEST["categoria_livro"];
+	$titulo      = @$_REQUEST["titulo_livro"];
+	$editora     = @$_REQUEST["editora_livro"];
+	$local       = @$_REQUEST["local_livro"];
+	$ano         = @$_REQUEST["ano_livro"];
+
+
+	switch (@$_REQUEST["acao"]) {
+		case "cadastrar":
+			$sql = "INSERT INTO livro (categoria_id_categoria, autor_id_autor, titulo_livro, editora_livro, local_livro, ano_livro) VALUES ('$categoria', '$autor', '$titulo', '$editora', '$local', '$ano')";
+
+			$res = $conn->query($sql);
+
+			if ($res==true) {
+				print "<br> <div class='alert alert-success'>Cadastro com sucesso!</div>";
+			} else{
+				print "<br> <div class='alert alert-danger'>Não foi possível cadastrar!</div>";
+			}
+      
+From line 40 to 45 I requested the values that were used in the "livro" insert, but in this one we will focus on $autor.
+This value comes from the 'value' inside the select tag, and it corresponds to the "id" for "autor".
+
+Line 50 and 51 inserts intothe rows of "livro" the values from the variables.
