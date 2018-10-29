@@ -3,7 +3,7 @@
 	// conexão com o banco de dados 
 	$host = "localhost";
 	$user = "root";
-	$pass = "root";
+	$pass = "";
 	$db   = "biblioteca";
 
 	$conn = new mysqli($host, $user, $pass, $db);
