@@ -2,7 +2,11 @@
 
 <?php 
 
-	$sql = "SELECT * FROM livro";
+	$sql = "SELECT a.*, l.*, c.* FROM livro as l 
+			INNER JOIN autor AS a 
+			ON l.autor_id_autor = a.id_autor
+			INNER JOIN categoria AS c
+			ON l.categoria_id_categoria = c.id_categoria";
 
 	$res = $conn -> query($sql) or die ($conn -> error);
 
@@ -26,8 +30,8 @@
 
 		while ($row = $res -> fetch_assoc()) {
 			$id_livro = $row['id_livro'];
-			$id_categoria = $row['categoria_id_categoria'];
-			$id_autor = $row['autor_id_autor'];
+			$categoria_livro = $row['nome_categoria'];
+			$autor_livro = $row['nome_autor'];
 			$titulo_livro = $row['titulo_livro'];
 			$editora_livro = $row['editora_livro'];
 			$local_livro = $row['local_livro'];
@@ -36,24 +40,9 @@
 			print '<tr>';
 
 				print'<td>'. $id_livro . '</td>';
-				
-				// Mostrar o valor da chave estrangeira da categoria
-				$query_categoria = "SELECT nome_categoria FROM categoria where id_categoria='$id_categoria'";
-	            $result_categoria = mysqli_query($conn, $query_categoria);
 
-                while ($row_categoria = mysqli_fetch_assoc($result_categoria)){
-                    print "<td>".$row_categoria['nome_categoria']."</td>";
-                }
-				
-
-				// Mostrar o valor da chave estrangeira do autor
-				$query_autor = "SELECT nome_autor FROM autor where id_autor='$id_autor'";
-	            $result_autor = mysqli_query($conn, $query_autor);
-
-                while ($row_autor = mysqli_fetch_assoc($result_autor)){
-                    print "<td>".$row_autor['nome_autor']."</td>";
-                }
-
+                print'<td>'. $categoria_livro . '</td>';
+                print'<td>'. $autor_livro . '</td>';
 
 
 				print'<td>'. $titulo_livro . '</td>';
