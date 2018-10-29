@@ -29,13 +29,13 @@
 					</tr>";
 
 		while ($row = $res -> fetch_assoc()) {
-			$id_livro = $row['id_livro'];
+			$id_livro        = $row['id_livro'];
 			$categoria_livro = $row['nome_categoria'];
-			$autor_livro = $row['nome_autor'];
-			$titulo_livro = $row['titulo_livro'];
-			$editora_livro = $row['editora_livro'];
-			$local_livro = $row['local_livro'];
-			$ano_livro = $row['ano_livro'];
+			$autor_livro     = $row['nome_autor'];
+			$titulo_livro    = $row['titulo_livro'];
+			$editora_livro   = $row['editora_livro'];
+			$local_livro     = $row['local_livro'];
+			$ano_livro       = $row['ano_livro'];
 
 			print '<tr>';
 
