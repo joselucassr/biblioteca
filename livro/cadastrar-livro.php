@@ -1,7 +1,8 @@
 <div class="col-6 mx-auto">
 	<h1 class="text-center">Cadastrar Livro</h1>
 
-	<form action="index.php?page=sal-livro&acao=cadastrar" method="POST">
+	<form action="index.php?page=sal-livro" method="POST">
+        <input type="hidden" name="acao" value="cadastrar">
 
         <!-- Tentativa de Mostrar os autores a partir de um dropdown menu -->
         <div class="form-group">
