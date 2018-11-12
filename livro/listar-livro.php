@@ -1,5 +1,16 @@
 <h1>Listar Livro</h1>
 
+            <!-- Notificação do resultado -->
+            <div class="row col-12 text-center">
+                <?php
+                session_start();    
+                if (isset($_SESSION['msg'])){
+                    echo $_SESSION['msg'];
+                    session_unset();
+                }
+                ?>
+            </div>
+
 <?php 
 
 	$sql = "SELECT a.*, l.*, c.* FROM livro as l 
@@ -11,6 +22,8 @@
 	$res = $conn -> query($sql) or die ($conn -> error);
 
 	$qtd = $res -> num_rows;
+
+
 
 
 	if ($qtd > 0) {

@@ -1,4 +1,5 @@
 <?php
+	session_start();
 
     $autor       = @$_REQUEST["autor_livro"];
     $categoria   = @$_REQUEST["categoria_livro"];
@@ -15,7 +16,8 @@
 			$res = $conn->query($sql);
 
 			if ($res==true) {
-				print "<br> <div class='alert alert-success'>Cadastro com sucesso!</div>";
+				$_SESSION['msg'] = '<div class="alert alert-success">Cadastro com sucesso!</div>';
+				header("Location: index.php?page=lis-livro");
 			} else{
 				print "<br> <div class='alert alert-danger'>Não foi possível cadastrar!</div>";
 			}

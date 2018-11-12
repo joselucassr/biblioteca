@@ -6,12 +6,14 @@
 		case "cadastrar":
 			$sql = "INSERT INTO autor (nome_autor) VALUES ('{$nome}')";
 
-			$res = $conn->query($sql);
+			$res = $conn->query($sql) or die($conn -> error);
 
 			if ($res==true) {
-				print "<br> <div class='alert alert-success'>Cadastro com sucesso!</div>";
+				print "<script>alert('Cadastrou com sucesso!');</script>";
+				print "<script>location.href='index.php?page=cad-autor';</script>";
 			} else{
-				print "<br> <div class='alert alert-danger'>Não foi possível cadastrar!</div>";
+				print "<script>alert('Cadastro não efetuado!');</script>";
+				print "<script>location.href='index.php?page=cad-autor';</script>";
 			}
 			break;
 		

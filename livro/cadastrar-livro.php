@@ -7,6 +7,7 @@
         <!-- Tentativa de Mostrar os autores a partir de um dropdown menu -->
         <div class="form-group">
             <label>Nome do Autor</label>
+
            <?php
            // Teste de criação de menu Dropdown
 
